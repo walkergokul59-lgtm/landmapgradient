@@ -1,0 +1,4 @@
+﻿app/page.tsx(115,11): error TS2367: This comparison appears to be unintentional because the types '"MultiPolygon"' and '"Polygon"' have no overlap.
+app/page.tsx(116,41): error TS2339: Property 'coordinates' does not exist on type 'never'.
+app/page.tsx(117,35): error TS7006: Parameter 'c' implicitly has an 'any' type.
+app/page.tsx(306,79): error TS2304: Cannot find name 'LineString'.

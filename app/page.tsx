@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { calculateArea, normalizePolygon } from '@/lib/geo'; // Assumed helpers
-import { Feature, Polygon, MultiPolygon } from 'geojson';
+import { Feature, Polygon, MultiPolygon, LineString } from 'geojson';
 
 // Dynamic import for MapComponent
 const MapComponent = dynamic(() => import('@/components/MapComponent'), {
@@ -112,10 +112,8 @@ export default function Home() {
       // Let's assume it returns Polygon.
       // If it was valid, calculateArea handles it.
       // Visualization:
-      if (feature.geometry.type === 'Polygon') {
-        const coords = feature.geometry.coordinates[0];
-        setPolygonPath(coords.map(c => ({ lat: c[1], lng: c[0] })));
-      }
+      const coords = feature.geometry.coordinates[0][0];
+      setPolygonPath(coords.map((c: number[]) => ({ lat: c[1], lng: c[0] })));
     }
   };
 
